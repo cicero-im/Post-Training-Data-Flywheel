@@ -1,6 +1,5 @@
 import jsonlines
 import json
-import random
 import re
 import os
 import copy
@@ -18,10 +17,11 @@ import signal
 from tqdm import tqdm
 import requests
 from concurrent.futures import ThreadPoolExecutor, TimeoutError
+import secrets
 
 out_dir=os.environ['OUTPUT_DIR']
 
-random.seed(0)
+secrets.SystemRandom().seed(0)
 
 
 # test gpt4

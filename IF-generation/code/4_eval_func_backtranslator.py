@@ -2,7 +2,6 @@ import json
 
 import jsonlines
 import json
-import random
 import re
 import os
 import copy
@@ -23,8 +22,9 @@ from concurrent.futures import ThreadPoolExecutor, TimeoutError
 import tenacity
 from utils import chat_completion_openai
 import ast
+import secrets
 
-random.seed(0)
+secrets.SystemRandom().seed(0)
 
 
 out_dir=os.environ['OUTPUT_DIR']
