@@ -1,6 +1,5 @@
 import jsonlines
 import json
-import random
 import re
 import os
 import copy
@@ -18,9 +17,10 @@ import signal
 from tqdm import tqdm
 import requests
 from concurrent.futures import ThreadPoolExecutor, TimeoutError
+import secrets
 
 
-random.seed(0)
+secrets.SystemRandom().seed(0)
 
 out_dir=os.environ['OUTPUT_DIR']
 
@@ -42,7 +42,7 @@ print(len(queries))
 
 inputs = []
 for instruction in tqdm(filter_results):
-    ins_queries = random.sample(queries, 8) #拼16个
+    ins_queries = secrets.SystemRandom().sample(queries, 8) #拼16个
     for q in ins_queries:
         prompt = f"Please answer the query strictly following the instruction.\n[instruction] {instruction['instruction']}\n[Query] {q}"
         item = copy.deepcopy(instruction)

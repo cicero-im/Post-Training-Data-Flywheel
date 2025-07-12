@@ -2,7 +2,6 @@ import json
 
 import jsonlines
 import json
-import random
 import re
 import os
 import copy
@@ -21,8 +20,9 @@ from tqdm import tqdm
 import requests
 from concurrent.futures import ThreadPoolExecutor, TimeoutError
 import tenacity
+import secrets
 
-random.seed(0)
+secrets.SystemRandom().seed(0)
 
 out_dir=os.environ['OUTPUT_DIR']
 

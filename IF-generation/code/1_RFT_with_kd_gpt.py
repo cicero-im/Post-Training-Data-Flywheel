@@ -1,9 +1,9 @@
 from utils import chat_completion_openai
-import random
 import sys
 from api_request_parallel_processor import process_api_requests_from_list
 import json
 import os
+import secrets
 
 
 if __name__ == '__main__':
@@ -12,7 +12,7 @@ if __name__ == '__main__':
         inp=sys.argv[1]
         out=sys.argv[2]
 
-    random.seed(0)
+    secrets.SystemRandom().seed(0)
 
     # cd ./AutoIF/code
 
